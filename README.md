@@ -2,6 +2,11 @@
 
 Distributed systems require something to trace what is happening inside a software architecture, useful for a lot of things (first of all troubleshooting).
 
+> OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis in order to understand your software's performance and behavior.
+
+> Jaeger, Monitor and troubleshoot transactions in complex distributed systems. As on-the-ground microservice practitioners are quickly realizing, the majority of operational problems that arise when moving to a distributed architecture are ultimately grounded in two areas: networking and observability. It is simply an orders of magnitude larger problem to network and debug a set of intertwined distributed services versus a single monolithic application.
+
+
 
 ## Project details
 We will create 3 projects as listed bellow
