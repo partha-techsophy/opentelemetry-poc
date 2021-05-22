@@ -23,10 +23,11 @@ We will create 3 projects as listed bellow
 
 
 ## Installation
-* Install docker [https://docs.docker.com/engine/install/]
-* Install minikube [https://minikube.sigs.k8s.io/docs/start/]
-* Install kubectl [https://kubernetes.io/docs/tasks/tools/]
-* install skaffold [https://skaffold.dev/docs/install/]
+- [Install docker](https://docs.docker.com/engine/install/)
+- [Install docker-compose](https://docs.docker.com/compose/install)
+- [Install minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [Install kubectl](https://kubernetes.io/docs/tasks/tools/)
+- [install skaffold](https://skaffold.dev/docs/install/)
 
 ## Run minikube
 To start minikube execute the following command
