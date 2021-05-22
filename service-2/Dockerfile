@@ -1,0 +1,10 @@
+FROM openjdk:13-jdk-alpine
+MAINTAINER techsophy
+RUN mkdir -p /app/bin
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE=build/libs/*.jar
+ARG TELEMETRY=src/main/jib/opentelemetry-javaagent-all.jar
+COPY ${JAR_FILE} /app/bin/app.jar
+COPY ${TELEMETRY} /app/bin
+ENTRYPOINT ["java", "-Dotel.exporter=jaeger", "-Dotel.exporter.jaeger.endpoint=192.168.1.71:14250", "-Dotel.exporter.jaeger.service.name=service-2", "-Dapplication.name=service-2", "-javaagent:/app/bin/opentelemetry-javaagent-all.jar", "-jar","/app/bin/app.jar"]

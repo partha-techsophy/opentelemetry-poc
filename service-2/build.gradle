@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'com.google.cloud.tools.jib' version '3.0.0'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+compileJava {
+	sourceCompatibility = 11
+	targetCompatibility = 11
+}
+
+repositories {
+	mavenCentral()
+}
+
+jib {
+	container {
+		jvmFlags = [
+				'-Dotel.exporter=jaeger',
+				'-Dotel.exporter.jaeger.endpoint=IP_ADDRESS:14250',
+				'-Dotel.exporter.jaeger.service.name=service-2',
+				'-Dapplication.name=service-2',
+				'-javaagent:/opentelemetry-javaagent-all.jar'
+		]
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}

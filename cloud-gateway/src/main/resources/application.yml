@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: service-1
+          uri: http://service-1:8080/
+          predicates:
+            - Path=/service-1/**
+        - id: service-2
+          uri: http://service-2:8080/
+          predicates:
+            - Path=/service-2/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+
